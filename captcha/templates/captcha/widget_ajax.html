@@ -5,14 +5,9 @@
 <div id="Recap"></div>
 <script type="text/javascript">
   var RecaptchaOptions = {{ options }};
-  Recaptcha.create("{{ public_key }}",
-    "Recap",
-    {
-      theme: RecaptchaOptions['theme'] || "red",
-      callback: Recaptcha.focus_response_field
-    }, 
-    RecaptchaOptions
-  );
+  RecaptchaOptions.theme = RecaptchaOptions.theme || "red";
+  RecaptchaOptions.callback = Recaptcha.focus_response_field;
+  Recaptcha.create("{{ public_key }}", "Recap", RecaptchaOptions);
 </script>
 
 
